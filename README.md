@@ -1,5 +1,5 @@
 # RedTeam-PowerShell-AMSI-Bypass
-![AMSI Bypass]([https://github.com/Anand7758/Password-Manager/blob/main/Password%20Manager/Files/Poc.png](https://github.com/AnandJogawade/RedTeam-PowerShell-AMSI-Bypass/blob/main/image.png)) <!-- Image -->
+![AMSI Bypass](POC.png)
 # **What is AMSI**
 
 Microsoft Antimalware Scan Interface (AMSI) is a Windows security interface introduced by Microsoft to allow applications and scripting engines to submit content to antivirus and endpoint security products for inspection before execution.
