@@ -18,6 +18,7 @@ When PowerShell runs suspicious content, it typically:
 - **The provider analyzes the content**
 - **A detection verdict is returned**
 - **PowerShell either allows or blocks execution**
+<br><br>
 The AMSI integration inside PowerShell is implemented through internal .NET classes within the System.Management.Automation assembly.
 ---
 
@@ -40,6 +41,7 @@ This field represents whether AMSI initialization failed inside the current Powe
 
 4. **And this script set it's value to**:
    - $null,$true.
+<br><br>
 This makes the current PowerShell process behave as if AMSI initialization failed, which changes how AMSI scanning operates for that session.
 ---
 
