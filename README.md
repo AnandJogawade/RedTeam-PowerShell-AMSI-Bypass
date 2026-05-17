@@ -1,5 +1,5 @@
 # RedTeam-PowerShell-AMSI-Bypass
-![AMSI Bypass](POC.png)
+
 # **What is AMSI**
 
 Microsoft Antimalware Scan Interface (AMSI) is a Windows security interface introduced by Microsoft to allow applications and scripting engines to submit content to antivirus and endpoint security products for inspection before execution.
@@ -160,4 +160,6 @@ $oldProtect = 0
 [UnsafeNativeMethods]::VirtualProtect($AmsiScanBufferPtr, [uint32]6, $oldProtect, [ref]$oldProtect) | Out-Null
 Write-Output "AMSI Bypass Patch Applied Successfully!"
 ```
-
+<br><br>
+### **Proof of Cencept**
+![AMSI Bypass](POC.png)
