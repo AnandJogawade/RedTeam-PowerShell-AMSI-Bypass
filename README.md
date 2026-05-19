@@ -42,7 +42,7 @@ This field indicates whether AMSI initialization failed inside the current Power
 4. **And this script set it's value to**:
    - $null,$true, SetValue($null,$true) uses $null because the field is static, not because $null itself is being assigned to the field. The actual field value being assigned is $true.
 <br><br>
-This causes the current PowerShell process to behave as though AMSI initialization failed, effectively disabling AMSI scanning for that PowerShell session.
+- This causes the current PowerShell process to behave as though AMSI initialization failed, effectively disabling AMSI scanning for that PowerShell session.
 ---
 
 ## **How To Use**
