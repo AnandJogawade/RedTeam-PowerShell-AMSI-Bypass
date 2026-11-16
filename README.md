@@ -95,7 +95,7 @@ The most common technique. Uses .NET Reflection to access the internal `AmsiUtil
 - Retrieve the `amsiInitFailed` private static field
 - Set its value to `$true` — PowerShell now believes AMSI is broken and stops scanning
 
-**Used in:** `OL-1` through `OL-4`, `MLT-1` through `MLT-8`, `ML-1`, `ML-2`
+**Used in:** `OL-1` through `OL-4`, `MLT-1` through `MLT-8`, `ML-1`, `ML-2`, `Numeric-Offset-Decode`, `Function-Wrapped-Decode`
 
 ### 2. Memory Patching (`AmsiScanBuffer` Patch)
 Directly patches the `AmsiScanBuffer` function in `amsi.dll` in memory. Overwrites the first bytes of the function with instructions that force an immediate return (effectively a no-op), so every scan returns clean.
@@ -152,6 +152,8 @@ RedTeam-PowerShell-AMSI-Bypass/
 │   ├── AMSI-Bypass-MLT-8.txt              # Whitespace stripping obfuscation
 │   ├── AMSI-Bypass-ML-1.ps1               # C# Add-Type compiled bypass
 │   ├── AMSI-Bypass-ML-2.ps1               # Turkish variable name obfuscation
+│   ├── Numeric-Offset-Decode-AMSI-Bypass.ps1  # Arithmetic char-code encoding
+│   ├── Function-Wrapped-Decode-AMSI-Bypass.ps1 # Reusable decode function with key
 │   ├── Dual-AMSI-Bypass.ps1               # Flag + AmsiScanBuffer patch
 │   ├── Direct-Syscall-AMSI-Bypass-With-Layered-Obfuscation.ps1
 │   ├── InDirect-Syscall-AMSI-Bypass-With-Layered-Obfuscation.ps1
@@ -230,6 +232,8 @@ Multi-liner `.ps1` scripts are full PowerShell scripts with additional logic:
 |--------|-----------|-------------|
 | `ML-1` | C# Add-Type | Compiles a C# class at runtime to perform the bypass |
 | `ML-2` | Variable Obfuscation | Uses Turkish variable names and junk math as obfuscation |
+| `Numeric-Offset-Decode` | Numeric Char-Code | Encodes type/field names as digit pairs decoded with arithmetic offset |
+| `Function-Wrapped-Decode` | Function Decode | Reusable decode function with configurable offset key |
 
 ---
 
