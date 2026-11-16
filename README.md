@@ -17,11 +17,9 @@
 
 <div align="center">
 
-## 🎬 Proof of Concept
 
 ![AMSI Bypass Demo](assets/demo.gif)
 
-*Status Check → AMSI Bypass → ScriptBlock Logging Bypass → Verification*
 
 </div>
 
