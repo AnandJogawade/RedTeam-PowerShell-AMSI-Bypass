@@ -11,6 +11,8 @@
 
 > ⚠️ **For authorized security testing and educational purposes only.** Unauthorized use against systems you don't own or have permission to test is illegal.
 
+</div>
+
 ---
 
 <div align="center">
