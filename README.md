@@ -1,7 +1,5 @@
 <div align="center">
 
-![AMSI Bypass Demo](assets/demo.gif)
-
 # 🛡️ RedTeam PowerShell AMSI Bypass
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
@@ -12,6 +10,18 @@
 **A comprehensive collection of AMSI (Antimalware Scan Interface) bypass techniques for security research, penetration testing, and red team operations.**
 
 > ⚠️ **For authorized security testing and educational purposes only.** Unauthorized use against systems you don't own or have permission to test is illegal.
+
+---
+
+<div align="center">
+
+## 🎬 Proof of Concept
+
+![AMSI Bypass Demo](assets/demo.gif)
+
+*Status Check → AMSI Bypass → ScriptBlock Logging Bypass → Verification*
+
+</div>
 
 ---
 
